@@ -1,0 +1,482 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+/* Tvorba navigačního panelu*/
+
+body{
+    min-height: 100vh;
+    background: rgb(228, 228, 228);
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 1.3rem 10%;
+    background: rgba(0, 0, 0, .1);
+    backdrop-filter: blur(50px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+}
+
+.header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, .1);
+    backdrop-filter: blur(50px);
+    z-index: -1;
+}
+
+.header::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba (255, 255, 255, .4), transparent);
+    transition: .5s;
+}
+
+.header:hover::after {
+    left: 100%;
+}
+
+.logo {
+    font-size: 2rem;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 700;
+}
+
+.navbar a {
+    font-size: 1.5rem;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    margin-left: 2.5rem;
+}
+
+#check {
+    display: none;
+}
+
+.icons {
+    position: absolute;
+    right: 5%; 
+    font-size: 2.8rem;
+    color: #fff;
+    cursor: pointer;
+    display: none;
+}
+
+/*BREAKPOINTS*/
+
+@media (max-width: 992px) {
+    .header {
+        padding: 1.3rem 5%;
+    }
+}
+
+@media (max-width: 768px) {
+    .icons {
+        display: inline-flex;
+    }
+
+    #check:checked~.icons #menu-icon {
+        display: none;
+    }
+
+    .icons #close-icon {
+        display:none;
+    }
+
+    #check:checked~.icons #close-icon {
+        display: block;
+    }
+
+    .navbar {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        height: 0;
+        background: grey;
+        box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .1);
+        transition: .3s ease;
+        overflow: hidden;
+        transition: .3s ease;
+    }
+
+    #check:checked~.navbar {
+         height: 17.7rem;
+    }    
+
+    .navbar a{
+        display: block;
+        font-size: 1.1rem;
+        margin: 1.5rem 0;
+        text-align: center;
+        transform: translateY(-50px);
+        opacity: 0;
+        transition: .3s ease;
+    }
+
+    #check:checked~.navbar a{
+        transform: translateY(0);
+        opacity: 1;
+        transition-delay: calc(.15s * var(--i));
+    }
+}
+/* Tvorba "O nás" */
+
+.container {
+    width: 80%;
+    margin: 90px auto;
+    padding: 20px;
+}
+
+.about-content {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+}
+
+.image{
+    flex: 1 1 50%;
+    margin-top: 20px;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.image img{
+    width: 100%;
+    transition: transform 0.3s ease;
+}
+
+.image:hover img{
+    transform: scale(1.1);
+}
+
+.content{
+    flex: 1 1 50%;
+    margin-right: 20px;
+}
+
+.content p{
+    font-size: 20px;
+    line-height: 1.6;
+}
+
+@media screen and (max-width: 768px) {
+    .about-content {
+        margin: 0;
+        margin-bottom: 10px;
+    }
+}
+
+/* Tvorba "Fotogalerie */
+
+.fotogal{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items:center;
+    margin: 40px 20px 0 20px;
+}
+
+.fotogal .fotogalerie{
+    width: 50px;
+    padding-bottom: 70px;
+
+}
+
+.fotogal .box{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+}
+
+.fotogal .box .dream{
+    display: flex;
+    flex-direction:column;
+    width: 32.5%;
+}
+
+.fotogal .box .dream img{
+    width: 100%;
+    padding-bottom: 15px;
+    border-radius: 5px;
+}
+
+@media only screen and (max-width: 769px) {
+    .fotogal .box{
+        flex-direction: column;
+    }
+
+    .fotogal .box .dream{
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width: 643px) {
+    .fotogal .fotogalerie{
+        width: 100px;
+    }
+    .fotogal .fotogalerie h3 {
+        font-size: 2em;
+    }
+}
+
+/* Tvorba "Zboží"*/
+
+.body-section{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: sans-serif;
+    background: rgb(228, 228, 228);
+    width: 100%;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+
+}
+
+.wrapper{
+    width: 80%;
+    padding: 30px 0;
+    text-align: center;
+    margin-top: 100px;
+}
+
+.content2{
+    padding: 10%;
+}
+
+.content2 h2{
+    font-size: 30px;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+}
+
+.content2 p{
+    line-height: 1.5;
+}
+
+.main-content{
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-row-gap: 25px;
+    grid-column-gap: 25px;
+}
+
+.main-content .box{
+    position: relative;
+    cursor: pointer;
+    margin-bottom: 30 px;
+    box-shadow: 15px 15px 40px rgba(0,0,0,0.15);
+    height: 250px;
+    overflow: hidden;
+}
+
+.main-content .box::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 5px;
+    height: 100%;
+    transition: all 0.5s ease-in-out;
+}
+
+.main-content .box:hover::before{
+    top: 0;
+    right: calc(100% - 5px);
+    z-index: 8;
+}
+
+.main-content .box img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.main-content .box .img-text {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.9);
+    width: 100%;
+    height: 100%;
+    top: 0;
+    right: 100%;
+    transition: all 0.5s ease-in-out;
+}
+
+.main-content .box:hover .img-text{
+    top: 0;
+    right: 0;
+}
+
+/* Tvorba "Kontakt" */
+
+.contact-container{
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    margin: 20px;
+    box-sizing: border-box;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 20vh;
+}
+
+.contact-left{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 20px;
+}
+
+.contact-left-title h2{
+    font-weight: 600;
+    color: #000000;
+    font-size: 40px;
+    margin-bottom: 5px;
+    margin-top: 50px;
+}
+
+.contact-inputs{
+    width: 400px;
+    height: 50px;
+    border: line;
+    outline: none;
+    padding-left: 25px;
+    font-weight: 500;
+    color: #666;
+    border-radius: 50px;
+}
+
+.contact-left textarea{
+    height: 140px;
+    padding-top: 15px;
+    border-radius: 20px;
+}
+
+.contact-inputs:focus{
+    border: 2px solid #ff994f;
+}
+
+.contact-inputs::placeholder{
+    color: #a9a9a9;
+}
+
+.contact-left button{
+    display: flex;
+    align-items: center;
+    padding: 15px 30px;
+    font-size: 16px;
+    color: #fff;
+    gap: 10px;
+    border: none;
+    border-radius: 50px;
+    background: linear-gradient(270deg, #ff994f, #fa6d86);
+    cursor: pointer;
+}
+
+.contact-left button img{
+    height: 15px;
+}
+
+@media (max-width:800px){
+    .contact-inputs{
+        width: 80vw;
+    }
+}
+
+/*Tvorba "Domů" */
+
+.table-box{
+    margin-top: 130px;
+}
+
+.table-row{
+    display: table;
+    width: 80%;
+    margin: 10px auto;
+    font-family: sans-serif;
+    background: transparent;
+    padding: 12px 0;
+    color: #555;
+    font-size: 16px;
+    box-shadow: 0 1px 4px 0 rgba(0, 0, 50, 0.3);
+}
+
+.table-cell{
+    display: table-cell;
+    width: 30%;
+    text-align: center;
+    padding: 4px 0;
+    border-right: 1px solid #d6d4d4;
+    vertical-align: middle;
+}
+
+.table-head{
+    background: #8665f7;
+    box-shadow: none;
+    color: #fff;
+    font-weight: 600;
+}
+
+.table-head .table-cell{
+    border-right: none;
+
+}
+
+.last-cell{
+    border-right: none;
+}
+
+/* Footer*/
+
+.footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 1em;
+    position: sticky;
+    margin-top: auto;
+}
+
+html{
+    height: 100%;
+}
+
+
+
+

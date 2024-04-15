@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,
+    initial-scale=1.0">
+    <title>Kontakt</title>
+    <link rel="stylesheet" href="style.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+
+<body>
+
+    <header class="header">
+        <a href="index.html" class="logo">TEXTIL-GALANTERIE</a>
+
+        <input type="checkbox" id="check">
+        <label for="check" class="icons">
+            <i class='bx bx-menu' id="menu-icon"></i>
+            <i class='bx bx-x' id="close-icon"></i>
+
+
+            
+        </label>
+
+        <nav class="navbar">
+            <a href="index.html">Domů</a>
+            <a href="onas.html">O nás</a>
+            <a href="zbozi.html">Zboží</a>
+            <a href="fotogalerie.html">Fotogalerie</a>
+            <a href="kontakt.html">Kontakt</a>
+        </nav>
+    </header>
+</body>
+
+<body>
+    <div class="contact-container">
+        <form action="https://api.web3forms.com/submit" method="POST"class="contact-left">
+            <div class="contact-left-title">
+                <h2><strong>Napište nám</strong></h2>
+            </div>
+            <input type="hidden" name="access_key" value="400b1c74-c780-48d5-aa44-e75258d7689d">
+            <input type="text" name="name" placeholder="Jméno" class="contact-inputs" required>
+            <input type="email" name="email" placeholder="Email" class="contact-inputs" required>
+            <textarea name="message" placeholder="Vaše zpráva..." class="contact-inputs" required></textarea>
+            <button type="submit">Poslat <img src="image/arrow_icon.png" alt=""></button>
+
+         </form>
+    </div>
+</body>
+<footer class="footer">
+    <div class="footer-content">
+        <p>© Josef Marha | Studentský projekt TNPW1 | marhajo1@uhk.cz | Aktualizováno: 13.04.2024</p>
+    </div>
+</footer>
+</html>
